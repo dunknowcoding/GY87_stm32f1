@@ -28,14 +28,10 @@ extern bool isFirstData;
 #ifdef GY87
     extern IMU_HYBRID<MPU6050, QMC5883L> IMU;
     extern calData calib;
-
-    #if defined(DISP_ALTITUDE) || defined(DISP_AIR_TEMP) || defined(DISP_PRESSURE)
-        extern BMP085 barometer;
-        extern float airTemperature;
-        extern float pressure;
-        extern float altitude;
-    #endif
-
+    extern BMP085 barometer;
+    extern float airTemperature;
+    extern float pressure;
+    extern float altitude;
 #endif
 
 #ifdef KALMAN

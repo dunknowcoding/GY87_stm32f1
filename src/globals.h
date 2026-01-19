@@ -17,6 +17,10 @@ bool isFirstData = true;
 #ifdef GY87
     IMU_HYBRID<MPU6050, QMC5883L> IMU(Wire);
     calData calib = {0};
+    BMP085 barometer;
+    float airTemperature;
+    float pressure;
+    float altitude;
 #endif
 
 #ifdef KALMAN
@@ -38,13 +42,6 @@ bool isFirstData = true;
 #ifdef MAHONY_AHRS
     Mahony MahonyAHRS;
     float roll, pitch, yaw;
-#endif
-
-#if defined(DISP_ALTITUDE) || defined(DISP_AIR_TEMP) || defined(DISP_PRESSURE)
-    BMP085 barometer;
-    float airTemperature;
-    float pressure;
-    float altitude;
 #endif
 
 #endif

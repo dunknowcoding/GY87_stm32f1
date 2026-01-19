@@ -49,19 +49,21 @@
         IMU.getGyro(&gyroEvent);
     }
 
-    void getAirTemp() {
-        airTemperature = barometer.bmp085GetTemperature(barometer.bmp085ReadUT()); //bmp085ReadUT MUST be called first
-    }
+    #ifdef GY87
+        void getAirTemp() {
+            airTemperature = barometer.bmp085GetTemperature(barometer.bmp085ReadUT()); //bmp085ReadUT MUST be called first
+        }
 
-    #ifdef DISP_ALTITUDE
-        void getAltitude() {
-            altitude = barometer.calcAltitude(DISP_ALTITUDE);
+        #ifdef DISP_ALTITUDE
+            void getAltitude() {
+                altitude = barometer.calcAltitude(DISP_ALTITUDE);
+            }
+        #endif
+
+        void getPressure() {
+            pressure = barometer.bmp085GetPressure(barometer.bmp085ReadUP());
         }
     #endif
-
-    void getPressure() {
-        pressure = barometer.bmp085GetPressure(barometer.bmp085ReadUP());
-    }
 
 #endif
 
